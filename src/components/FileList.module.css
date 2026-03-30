@@ -93,19 +93,39 @@
 .fileIcon {
   width: 34px;
   height: 34px;
-  background: var(--accent-dim);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--accent);
 }
 
-.fileIcon svg {
-  width: 16px;
-  height: 16px;
+.fileIcon svg { width: 16px; height: 16px; }
+
+.pdfIcon { background: var(--accent-dim); color: var(--accent); }
+.imgIcon { background: #EAF2FF; color: #4A7FD6; }
+
+.imgThumb {
+  overflow: hidden;
+  background: var(--bg-deep);
 }
+
+.imgThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kindBadge {
+  padding: 0.05rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+}
+
+.kindPdf { background: var(--accent-dim); color: var(--accent); }
+.kindImg { background: #EAF2FF; color: #4A7FD6; }
 
 .info {
   flex: 1;

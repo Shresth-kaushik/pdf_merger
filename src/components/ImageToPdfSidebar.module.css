@@ -1,0 +1,202 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  animation: fadeUp 0.45s ease both;
+  animation-delay: 0.1s;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.cardHeader {
+  padding: 0.75rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.63rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+  background: var(--bg-deep);
+}
+
+.stats { padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.statRow { display: flex; justify-content: space-between; align-items: center; }
+.statLabel { font-size: 0.68rem; color: var(--ink-muted); }
+.statVal { font-size: 0.82rem; font-weight: 500; color: var(--ink); }
+.statusWaiting { color: var(--ink-muted); }
+.statusReady   { color: #4A7FD6; }
+.statusMerging { color: #D68A2A; }
+.statusDone    { color: var(--success); }
+.statusError   { color: var(--accent); }
+
+.inputGroup { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.inputLabel {
+  font-size: 0.63rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+/* Segmented control */
+.segmented {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+.seg {
+  flex: 1;
+  padding: 0.5rem 0.4rem;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border);
+  font-family: 'Instrument Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.seg:last-child { border-right: none; }
+.seg:hover:not(:disabled) { background: var(--card); color: var(--ink); }
+.seg.segActive { background: #1A2E5A; color: white; }
+.seg:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.sizeHint {
+  font-size: 0.62rem;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+.inputWrapper { position: relative; }
+
+.input {
+  width: 100%;
+  padding: 0.65rem 2.5rem 0.65rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--ink);
+  font-family: 'Instrument Mono', monospace;
+  font-size: 0.78rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input:focus { border-color: #4A7FD6; box-shadow: 0 0 0 3px rgba(74,127,214,0.1); }
+.input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.ext {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  pointer-events: none;
+}
+
+.progressWrap { display: flex; align-items: center; gap: 0.75rem; }
+
+.progressBar {
+  flex: 1;
+  height: 3px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #4A7FD6;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.progressLabel { font-size: 0.65rem; color: var(--ink-muted); min-width: 2.5rem; text-align: right; }
+
+.successBanner, .errorBanner {
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  animation: fadeUp 0.2s ease;
+}
+
+.successBanner { background: var(--success-bg); border: 1px solid var(--success-border); color: var(--success); }
+.successBanner svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; }
+.errorBanner { background: #FEF0ED; border: 1px solid #F5C4BB; color: var(--accent); }
+.errorBanner svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; }
+
+.convertBtn {
+  width: 100%;
+  padding: 0.95rem;
+  background: #1A2E5A;
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Instrument Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: opacity 0.2s, transform 0.15s;
+  box-shadow: var(--shadow-sm);
+}
+
+.convertBtn:hover:not(:disabled) { opacity: 0.88; }
+.convertBtn:active:not(:disabled) { transform: scale(0.98); }
+.convertBtn:disabled { opacity: 0.3; cursor: not-allowed; }
+.convertBtn.processingState { background: #4A7FD6; cursor: default; }
+.convertBtn svg { width: 16px; height: 16px; }
+
+.spinner {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+.clearBtn {
+  width: 100%;
+  padding: 0.65rem;
+  background: transparent;
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: 'Instrument Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.clearBtn:hover:not(:disabled) { border-color: #4A7FD6; color: #4A7FD6; }
+.clearBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.tips { padding: 1rem 1.1rem; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); }
+.tipsTitle { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; margin-bottom: 0.75rem; }
+.tipsList { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.tipsList li { font-size: 0.68rem; color: var(--ink-muted); line-height: 1.5; padding-left: 1rem; position: relative; }
+.tipsList li::before { content: '—'; position: absolute; left: 0; color: #4A7FD6; font-size: 0.65rem; }

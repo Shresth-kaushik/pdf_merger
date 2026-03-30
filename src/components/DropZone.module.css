@@ -1,14 +1,12 @@
 .zone {
   border: 1.5px dashed var(--border);
   border-radius: var(--radius-lg);
-  padding: 3.5rem 2rem;
+  padding: 2.5rem 2rem;
   text-align: center;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, transform 0.15s;
   background: var(--card);
   position: relative;
   overflow: hidden;
-  outline: none;
+  transition: border-color 0.2s, background 0.2s;
   animation: fadeUp 0.4s ease both;
 }
 
@@ -22,86 +20,77 @@
   pointer-events: none;
 }
 
-.zone:hover::before {
-  opacity: 0.5;
-}
-
-.zone.active {
-  border-color: var(--accent);
-  border-style: solid;
-  transform: scale(1.005);
-}
-
-.zone.active::before {
-  opacity: 1;
-}
-
-.input {
-  display: none;
-}
+.zone:hover::before { opacity: 0.4; }
+.zone.active { border-color: var(--accent); border-style: solid; }
+.zone.active::before { opacity: 1; }
+.input { display: none; }
 
 .iconWrap {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   background: var(--ink);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.25rem;
+  margin: 0 auto 1.1rem;
   position: relative;
   transition: transform 0.2s;
 }
-
-.zone:hover .iconWrap {
-  transform: translateY(-3px);
-}
-
-.zone.active .iconWrap {
-  background: var(--accent);
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
-  color: white;
-}
+.iconWrap:hover { transform: translateY(-3px); }
+.zone.active .iconWrap { background: var(--accent); }
+.icon { width: 22px; height: 22px; color: white; }
 
 .pulse {
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
+  position: absolute; inset: -2px; border-radius: 50%;
   border: 2px solid var(--accent);
   animation: pulse-ring 1s ease-out infinite;
 }
 
 .title {
   font-family: 'Fraunces', serif;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 400;
   color: var(--ink);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.02em;
   position: relative;
 }
 
-.sub {
-  font-size: 0.72rem;
-  color: var(--ink-muted);
-  margin-bottom: 0.4rem;
+.btns {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 0.85rem;
   position: relative;
 }
 
-.link {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.browseBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Instrument Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.browseBtn:hover { opacity: 0.82; transform: translateY(-1px); }
+.browseBtn svg { width: 13px; height: 13px; }
+
+.imgBtn {
+  background: #1A2E5A;
 }
 
 .hint {
-  font-size: 0.65rem;
-  color: var(--border);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 0.63rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
   position: relative;
 }
